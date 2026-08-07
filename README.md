@@ -62,6 +62,8 @@ npm run dev
 *Vite will start the frontend on `http://localhost:5173`. Just click that link in your terminal to open the app!*
 
 ---
+## Netlify Deployment link 
+Link: https://todotasklist-app.netlify.app/
 
 ## My Learning Journey & Challenges 🚀
 
