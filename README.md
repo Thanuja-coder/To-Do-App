@@ -1,4 +1,4 @@
-# My To-Do List App 📝
+# My To-Do List App 
 
 Hey there! This is a full-stack To-Do List application I built to practice my skills with the MERN stack (MongoDB, Express.js, React, Node.js). It's a simple but fully functional app where you can create, read, update, delete, and even search for tasks!
 
