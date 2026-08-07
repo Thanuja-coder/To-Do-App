@@ -99,7 +99,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>To-Do List App 📝</h1>
+      <h1>To-Do List App</h1>
 
       <div className="section-container">
         <h2>Add Task</h2>
