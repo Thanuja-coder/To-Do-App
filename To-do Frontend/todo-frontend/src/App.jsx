@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "./services/api";
+import "./App.css";
 
 function App() {
   // Store all tasks
@@ -97,85 +98,99 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>To-Do List App</h1>
+    <div className="app-container">
+      <h1>To-Do List App 📝</h1>
 
-      <h2>Add Task</h2>
-      <input
-        type="text"
-        placeholder="Enter title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <br /><br />
-      <input
-        type="text"
-        placeholder="Enter description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <br /><br />
-      <button onClick={addTask}>Add Task</button>
-      <hr />
+      <div className="section-container">
+        <h2>Add Task</h2>
+        <input
+          type="text"
+          placeholder="Enter title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <button onClick={addTask}>Add Task</button>
+      </div>
 
-      <h2>Search Task</h2>
-      <input
-        type="text"
-        placeholder="Enter task title"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button onClick={searchTask}>Search</button>
-      <br /><br />
+      <div className="section-container">
+        <h2>Search Task</h2>
+        <input
+          type="text"
+          placeholder="Enter task title"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button className="btn-secondary" onClick={searchTask}>Search</button>
+        <button className="btn-secondary" onClick={() => setSearchResult([])}>Clear</button>
 
-      {searchResult.map((task) => (
-        <div key={task._id} className="task-card">
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
-          <p>Status : {task.status}</p>
-        </div>
-      ))}
+        {searchResult.length > 0 && (
+          <div style={{ marginTop: '20px' }}>
+            {searchResult.map((task) => (
+              <div key={task._id} className="task-card">
+                <h3>{task.title}</h3>
+                <p>{task.description}</p>
+                <span className={`status ${task.status === "Completed" ? "completed" : ""}`}>
+                  {task.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-      <h2>Task List</h2>
-      {tasks.map((task) => (
-        <div key={task._id} className="task-card">
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
-          <p>Status : {task.status}</p>
-
-          <button onClick={() => deleteTask(task._id)}>Delete</button>
-          <button onClick={() => {
-            setEditId(task._id);
-            setEditTitle(task.title);
-            setEditDescription(task.description);
-          }}>
-            Edit
-          </button>
-          <button onClick={() => changeStatus(task._id)}>Mark Completed</button>
-
-          {editId === task._id && (
-            <div style={{ marginTop: "15px", padding: "10px", border: "1px dashed gray" }}>
-              <h4>Edit Task</h4>
-              <input
-                type="text"
-                placeholder="Edit Title"
-                value={editTitle}
-                onChange={(e) => setEditTitle(e.target.value)}
-              />
-              <br /><br />
-              <input
-                type="text"
-                placeholder="Edit Description"
-                value={editDescription}
-                onChange={(e) => setEditDescription(e.target.value)}
-              />
-              <br /><br />
-              <button onClick={updateTask}>Update Task</button>
-              <button onClick={() => setEditId("")}>Cancel</button>
+      <div className="section-container" style={{ background: 'transparent', boxShadow: 'none', padding: '0' }}>
+        <h2>Task List</h2>
+        {tasks.map((task) => (
+          <div key={task._id} className="task-card">
+            <h3>{task.title}</h3>
+            <p>{task.description}</p>
+            <span className={`status ${task.status === "Completed" ? "completed" : ""}`}>
+              {task.status}
+            </span>
+            
+            <div style={{ marginTop: '10px' }}>
+              <button className="btn-danger" onClick={() => deleteTask(task._id)}>Delete</button>
+              <button className="btn-secondary" onClick={() => {
+                setEditId(task._id);
+                setEditTitle(task.title);
+                setEditDescription(task.description);
+              }}>
+                Edit
+              </button>
+              {task.status !== "Completed" && (
+                <button className="btn-success" onClick={() => changeStatus(task._id)}>Mark Completed</button>
+              )}
             </div>
-          )}
-        </div>
-      ))}
+
+            {editId === task._id && (
+              <div className="edit-form">
+                <h4>Edit Task</h4>
+                <input
+                  type="text"
+                  placeholder="Edit Title"
+                  value={editTitle}
+                  onChange={(e) => setEditTitle(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Edit Description"
+                  value={editDescription}
+                  onChange={(e) => setEditDescription(e.target.value)}
+                />
+                <button className="btn-success" onClick={updateTask}>Save</button>
+                <button className="btn-secondary" onClick={() => setEditId("")}>Cancel</button>
+              </div>
+            )}
+          </div>
+        ))}
+        {tasks.length === 0 && <p style={{ textAlign: 'center', color: '#6B7280' }}>No tasks yet! Add one above.</p>}
+      </div>
     </div>
   );
 }
