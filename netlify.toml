@@ -2,6 +2,7 @@
   base = "To-do Frontend/todo-frontend"
   command = "npm run build"
   publish = "dist"
+  ignore = "false"
 
 [[redirects]]
   from = "/*"
