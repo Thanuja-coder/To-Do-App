@@ -1,10 +1,7 @@
-// Import axios
 import axios from "axios";
 
-// Backend URL
 const API = axios.create({
-    baseURL: "http://localhost:8081"
+    baseURL: "https://todo-backend-fc8s.onrender.com"
 });
 
-// Export API
 export default API;
