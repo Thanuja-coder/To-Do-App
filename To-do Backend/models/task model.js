@@ -4,21 +4,22 @@ const mongoose = require("mongoose");
 // Create the schema for storing task details
 const taskSchema = new mongoose.Schema({
 
-    // Task title
+    // Task title is required
     title: {
         type: String,
         required: true
     },
 
-    // Task description
+    // Task description is required
     description: {
         type: String,
         required: true
     },
 
-    // Task status
+    // Task status can only have these values
     status: {
         type: String,
+        enum: ["Pending", "Completed"],
         default: "Pending"
     },
 
