@@ -1,34 +1,28 @@
 // Import hooks
 import { useEffect, useState } from "react";
-
-// Import API
+// Import API endpoints
 import API from "../services/api";
-
 function TaskList() {
-
-    // Store all tasks
+    // storing all tasks in the way
     const [tasks, setTasks] = useState([]);
 
-    // Load tasks when page opens
+    // loaing the tasks when page opens
     useEffect(() => {
-
         getTasks();
+
 
     }, []);
 
-    // Function to get tasks
+    // I wrote a function to get tasks
     async function getTasks() {
-
         const response = await API.get("/tasks");
-
         setTasks(response.data);
+
 
     }
 
     return (
-
         <div>
-
             <h2>Task List</h2>
 
             {
@@ -52,6 +46,7 @@ function TaskList() {
         </div>
 
     );
+
 
 }
 

@@ -1,0 +1,55 @@
+$kind: http-example
+request:
+  url: http://localhost:8081/tasks
+  method: GET
+  body:
+    type: json
+    content: "{\r
+
+      \    \"title\": \"Updated Postman Task\",\r
+
+      \    \"description\": \"Task details were updated\"\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    x-powered-by: Express
+    access-control-allow-origin: "*"
+    content-type: application/json; charset=utf-8
+    content-length: "504"
+    etag: W/"1f8-0iuVXTrpu0dkRCwilZdAzWbPm9I"
+    date: Mon, 10 Aug 2026 08:46:36 GMT
+    connection: keep-alive
+    keep-alive: timeout=5
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "_id": "6a74b5364d290b40a05c69d2",
+          "title": "Test task",
+          "description": "This is a test task",
+          "status": "Completed",
+          "createdAt": "2026-08-06T16:24:22.164Z",
+          "__v": 0
+        },
+        {
+          "_id": "6a74b91fa2114ac43de25370",
+          "title": "CRUD Test Search",
+          "description": "Testing search operations",
+          "status": "Pending",
+          "createdAt": "2026-08-06T16:41:03.971Z",
+          "__v": 0
+        },
+        {
+          "_id": "6a79853bf24a0b477889bde0",
+          "title": "Updated Postman Task",
+          "description": "Task details were updated",
+          "status": "Pending",
+          "createdAt": "2026-08-10T08:00:59.263Z",
+          "__v": 0
+        }
+      ]
+order: 1786351604549

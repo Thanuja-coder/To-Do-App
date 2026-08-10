@@ -1,0 +1,14 @@
+$kind: http-request
+name: http://localhost:8081/tasks
+description: POST- adding a new task
+url: http://localhost:8081/tasks
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Study\",\r
+
+    \    \"description\": \"Start Studying from 9am\"\r
+
+    }"

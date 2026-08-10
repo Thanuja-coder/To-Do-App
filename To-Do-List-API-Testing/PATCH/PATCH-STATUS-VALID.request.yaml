@@ -1,0 +1,12 @@
+$kind: http-request
+name: PATCH-STATUS-VALID
+description: ""
+url: http://localhost:8081/tasks/6a79853bf24a0b477889bde0/status
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"status\": \"Completed\"\r
+
+    }"

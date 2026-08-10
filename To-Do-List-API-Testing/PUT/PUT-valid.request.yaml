@@ -1,0 +1,15 @@
+$kind: http-request
+description: ""
+url: http://localhost:8081/tasks/6a79853bf24a0b477889bde0
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Updated Postman Task\",\r
+
+    \    \"description\": \"Task details were updated\"\r
+
+    }"
+examples: .resources/PUT-valid.resources/examples
+order: 1209863011041279

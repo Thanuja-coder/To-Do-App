@@ -1,0 +1,15 @@
+$kind: http-request
+name: POST-invalidError
+description: Its shows the Error handling in POST method
+url: http://localhost:8081/tasks
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"\",\r
+
+    \    \"description\": \"\"\r
+
+    }"
+order: 3764232445231103
