@@ -36,3 +36,14 @@ h2 {
     margin-top: 25px;
 
 }
+
+/* Error message shown when something goes wrong */
+.error-message {
+    background: #ffe4e4;
+    color: #b91c1c;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
