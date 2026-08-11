@@ -13,41 +13,28 @@ function TaskList() {
 
     }, []);
 
-    // I wrote a function to get tasks
+    // I wrote a function to get tasks and diaplay on the screen
     async function getTasks() {
         const response = await API.get("/tasks");
         setTasks(response.data);
 
-
     }
-
     return (
         <div>
             <h2>Task List</h2>
 
             {
                 tasks.map((task) => (
-
                     <div key={task._id}>
-
                         <h3>{task.title}</h3>
-
                         <p>{task.description}</p>
-
                         <p>Status : {task.status}</p>
-
                         <hr />
-
                     </div>
 
                 ))
-            }
-
-        </div>
+            } </div>
 
     );
-
-
 }
-
 export default TaskList;
